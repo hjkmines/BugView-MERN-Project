@@ -31,9 +31,9 @@ router.get('/getsubpost', requireLogin, (req, res) => {
 })
 
 router.post('/createpost', requireLogin, (req, res) => {
-    const { title, body, due, github, teamMembers, severity, status } = req.body 
+    const { title, body, due, github, teamMembers, severity, status, language, framework } = req.body 
 
-    if(!title || !body || !due || !github || !teamMembers || !severity || !status ){
+    if(!title || !body || !due || !github || !teamMembers || !severity || !status || !language || !framework){
         return res.status(422).json({ error: 'Please complete all fields' })
     }
 
@@ -47,7 +47,9 @@ router.post('/createpost', requireLogin, (req, res) => {
         teamMembers, 
         severity, 
         postedBy: req.user, 
-        status 
+        status, 
+        language, 
+        framework 
     })
 
     post.save().then(result => {
@@ -89,7 +91,7 @@ router.put('/like', requireLogin, (req, res) => {
 router.put('/comment', requireLogin, (req, res) => {
     const comment = {
         text: req.body.text, 
-        postedBy: req.user._id
+        postedBy: req.user._id 
     }
 
     Post.findByIdAndUpdate(req.body.postId, {
@@ -97,8 +99,8 @@ router.put('/comment', requireLogin, (req, res) => {
     }, {
         new: true 
     })
-    .populate('comments.postedBy', '_id firstName lastName')
-    .populate('postedBy', '_id firstName lastName')
+    .populate('comments.postedBy', '_id firstName lastName date')
+    .populate('postedBy', '_id firstName lastName date')
     .exec((err, result) => {
         if(err) {
             return res.status(422).json({ error: err })

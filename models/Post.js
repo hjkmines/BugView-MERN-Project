@@ -41,6 +41,14 @@ const PostSchema = new mongoose.Schema({
     status: {
         type: String, 
         required: true 
+    }, 
+    language: {
+        type: String, 
+        required: true 
+    }, 
+    framework: {
+        type: String, 
+        required: true 
     }
 }, {timestamps: true}); 
 
