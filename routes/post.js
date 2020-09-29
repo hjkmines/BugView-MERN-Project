@@ -31,9 +31,9 @@ router.get('/getsubpost', requireLogin, (req, res) => {
 })
 
 router.post('/createpost', requireLogin, (req, res) => {
-    const { title, body, due, github, teamMembers, severity } = req.body 
+    const { title, body, due, github, teamMembers, severity, status } = req.body 
 
-    if(!title || !body || !due || !github || !teamMembers || !severity ){
+    if(!title || !body || !due || !github || !teamMembers || !severity || !status ){
         return res.status(422).json({ error: 'Please complete all fields' })
     }
 
@@ -46,7 +46,8 @@ router.post('/createpost', requireLogin, (req, res) => {
         github, 
         teamMembers, 
         severity, 
-        postedBy: req.user 
+        postedBy: req.user, 
+        status 
     })
 
     post.save().then(result => {

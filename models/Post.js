@@ -37,8 +37,11 @@ const PostSchema = new mongoose.Schema({
     postedBy: {
         type: ObjectId, 
         ref: 'User' 
+    }, 
+    status: {
+        type: String, 
+        required: true 
     }
-
 }, {timestamps: true}); 
 
 mongoose.model('Post', PostSchema);         
