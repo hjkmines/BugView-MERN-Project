@@ -1,4 +1,4 @@
 module.exports={
-    MONGOURI: process.env.MONGOURI, 
-    JWT_SECRET: process.env.JWT_SECRET
+    MONGOURI: 'mongodb+srv://tkim123:123@cluster0.2urup.mongodb.net/BugView?retryWrites=true&w=majority', 
+    JWT_SECRET: 'secret'
 }   
