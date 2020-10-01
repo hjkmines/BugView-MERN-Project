@@ -7,7 +7,7 @@ const path = require('path')
 const PORT = process.env.PORT || 5000; 
 
 
-mongoose.connect(process.env.MONGOURI || MONGOURI, {
+mongoose.connect(process.env.MONGODB_URI || MONGOURI, {
     useUnifiedTopology: true, 
     useNewUrlParser: true 
 }); 
