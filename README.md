@@ -30,7 +30,7 @@ BugView is a easy-to-use web application tool to track and manage bugs for any l
 </div>
 
 ## Project Video
-[Click to view](https://youtu.be/1JKQrFFHDAQ)
+[Click to view demo of BugView](https://youtu.be/1JKQrFFHDAQ)
 
 ## Technologies
 ### Backend Development 
