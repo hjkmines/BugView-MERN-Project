@@ -4,9 +4,10 @@ const app = express();
 const { MONGOURI } = require('./config/keys'); 
 const path = require('path') 
 
+const PORT = process.env.PORT || 5000; 
 
 
-mongoose.connect(MONGOURI, {
+mongoose.connect(process.env.MONGOURI || MONGOURI, {
     useUnifiedTopology: true, 
     useNewUrlParser: true 
 }); 
@@ -34,6 +35,5 @@ if(process.env.NODE_ENV === 'production') {
     })
 }
 
-const PORT = process.env.PORT || 5000; 
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`)); 
