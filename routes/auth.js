@@ -11,6 +11,10 @@ const requiredLogin = require('../middleware/requireLogin');
 const nodemailer = require('nodemailer'); 
 const sendgridTransport = require('nodemailer-sendgrid-transport'); 
 
+
+//POST Route: '/signup'
+//Description: Signs user up for account
+//PRIVATE
 router.post('/signup', (req, res) => {
     const { firstName, lastName, password, email, jobTitle, image } = req.body 
     if(!email || !password || !firstName || !lastName || !jobTitle ) {
@@ -50,6 +54,9 @@ router.post('/signup', (req, res) => {
         })
 })
 
+//POST Route: '/signin'
+//Description: Signs user in
+//Public
 router.post('/signin', (req, res) => {
 
     const { email, password } = req.body
