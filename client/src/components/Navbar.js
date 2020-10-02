@@ -1,8 +1,10 @@
 import userEvent from '@testing-library/user-event';
-import React, { useContext, useRef, useEffect, useState } from 'react'; 
+import React, { useContext, useRef, useEffect, useState, useLayoutEffect } from 'react'; 
 import { Link, useHistory } from 'react-router-dom'; 
 import { UserContext } from '../App'; 
 import M from 'materialize-css'; 
+import { Button, Dropdown } from 'react-materialize';
+
 
 const Navbar = () => {
     const history = useHistory(); 
@@ -16,6 +18,7 @@ const Navbar = () => {
     })
 
     const renderedList = () => {
+        
         if(state) {
             return [
             
@@ -68,8 +71,32 @@ const Navbar = () => {
             <nav className='navigation'>
                 <div class="nav-wrapper">
                     <Link to={ state ? "/" : "/login" } className="brand-logo left" style={{ marginLeft: '20px' }}><i className='large material-icons'>bug_report</i>BugView</Link>
-                        <ul id="nav-mobile" className="right">
-                        {renderedList()}
+                        <ul id="nav-mobile" className="right menu">
+                        {window.innerWidth < 960 ?  
+                            <Dropdown
+                                id="Dropdown_6"
+                                options={{
+                                    alignment: 'left',
+                                    autoTrigger: true,
+                                    closeOnClick: true,
+                                    constrainWidth: true,
+                                    container: null,
+                                    coverTrigger: true,
+                                    hover: false,
+                                    inDuration: 150,
+                                    onCloseEnd: null,
+                                    onCloseStart: null,
+                                    onOpenEnd: null,
+                                    onOpenStart: null,
+                                    outDuration: 250
+                                }}
+                                trigger={<Button style={{marginRight: '20px'}} node="button">Options</Button>}
+                                >
+                                {renderedList()}
+                            </Dropdown>
+                            : 
+                            renderedList()
+                        }
                         </ul>
                 </div>
                 <div 
