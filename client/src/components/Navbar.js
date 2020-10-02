@@ -18,20 +18,12 @@ const Navbar = () => {
     const renderedList = () => {
         if(state) {
             return [
-                <li key='1'>
-                <i 
-                    className='large material-icons modal-trigger'
-                    data-target='modal1'
-                    style={{ color: 'black' }}
-                >
-                    search
-                </i>
-                </li>,
-                <li key='2'><Link to="/profile" className='link-title'>My Profile</Link></li>, 
-                <li key='3'><Link to="/myfollowerspost" className='link-title'>My Team's Tickets</Link></li>, 
-                <li key='4'><Link to="/alltickets" className='link-title'>All Tickets</Link></li>, 
-                <li key='5'><Link to="/createpost" className='link-title'>Create New Ticket</Link></li>,
-                <li key='6'>
+            
+                <li key='1'><Link to="/profile" className='link-title'>My Profile</Link></li>, 
+                <li key='2'><Link to="/myfollowerspost" className='link-title'>My Team's Tickets</Link></li>, 
+                <li key='3'><Link to="/alltickets" className='link-title'>All Tickets</Link></li>, 
+                <li key='4'><Link to="/createpost" className='link-title'>Create New Ticket</Link></li>,
+                <li key='5'>
                     <button 
                         className='btn #c62828 red darken-3' 
                         onClick={() => {
@@ -47,8 +39,8 @@ const Navbar = () => {
             ]
         } else {
             return [
-                <li key='7'><Link to="/login" className='link-title'>Log In</Link></li>,
-                <li key='8'><Link to="/signup" className='link-title'>Register</Link></li>
+                <li key='6'><Link to="/login" className='link-title'>Log In</Link></li>,
+                <li key='7'><Link to="/signup" className='link-title'>Register</Link></li>
             ]
         }
     }
