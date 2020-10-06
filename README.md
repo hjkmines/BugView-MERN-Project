@@ -3,6 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Project Demo](#project-demo)
 * [Project Video](#project-video)
 * [Technologies](#technologies)
 * [Setup](#setup)
@@ -28,6 +29,9 @@ BugView is a easy-to-use web application tool to track and manage bugs for any l
 <img src="./profile.JPG">
 </kbd>
 </div>
+
+## Project Demo 
+[Click to view site](https://bug-view.herokuapp.com/login)
 
 ## Project Video
 [Click to view demo of BugView](https://youtu.be/1JKQrFFHDAQ)
